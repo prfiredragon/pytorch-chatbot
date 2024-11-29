@@ -56,13 +56,15 @@ y_train = np.array(y_train)
 
 # Hyper-parameters 
 num_epochs = 1000
-batch_size = 8
+batch_size = 100
+#8
 learning_rate = 0.001
 input_size = len(X_train[0])
 hidden_size = 8
 output_size = len(tags)
 layer_dim = 2  # ONLY CHANGE IS HERE FROM ONE LAYER TO TWO LAYER
-print(input_size, output_size)
+#print(input_size, output_size)
+n_iters = 3000
 
 class ChatDataset(Dataset):
 
@@ -84,7 +86,13 @@ train_loader = DataLoader(dataset=dataset,
                           batch_size=batch_size,
                           shuffle=True,
                           num_workers=0)
-
+test_loader = DataLoader(dataset=dataset,
+                          batch_size=batch_size,
+                          shuffle=False,
+                          num_workers=0)
+print(f'Dataset size: {len(dataset)}')
+print(f'sugested epochs size: {int(n_iters / (len(dataset) / batch_size))}')
+num_epochs = int(n_iters / (len(dataset) / batch_size))
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 #model = NeuralNet(input_size, hidden_size, output_size).to(device)
@@ -119,10 +127,11 @@ print(model)
 criterion = nn.CrossEntropyLoss()
 optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate)
 
-
+iter = 0
 # Train the model
 for epoch in range(num_epochs):
     for (words, labels) in train_loader:
+        model.train()
         words = words.unsqueeze(1).to(device)
         labels = labels.to(dtype=torch.long).to(device)
         #embedding = nn.Embedding(words, hidden_size)
@@ -145,7 +154,18 @@ for epoch in range(num_epochs):
         optimizer.step()
         
     if (epoch+1) % 100 == 0:
-        print (f'Epoch [{epoch+1}/{num_epochs}], Loss: {loss.item():.4f}')
+       model.eval()
+       correct = 0
+       total = 0
+       for words, labels in test_loader:
+          words = words.unsqueeze(1).to(device)
+          labels = labels.to(dtype=torch.long).to(device)
+          outputs = model(words)
+          _, predicted = torch.max(outputs.data, 1)
+          total += labels.size(0)
+          correct += (predicted == labels).sum()
+       accuracy = 100 * correct / total
+       print (f'Epoch [{epoch+1}/{num_epochs}], Loss: {loss.item():.4f}, accuracy: {accuracy}')
 
 
 print(f'final loss: {loss.item():.4f}')
