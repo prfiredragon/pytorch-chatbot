@@ -1,6 +1,10 @@
 # Implementation of a Contextual Chatbot in PyTorch.  
 ## This Version 
-This version is a modified version using data from my self, using data from another projects and ussing RNN insted of NeuralNet
+This version is a modified version 
+- using data from my self
+- using data from another projects
+- ussing RNN insted of NeuralNet
+- Using rules for call functions like to get the date and time
 
 ## Description
 
