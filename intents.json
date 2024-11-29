@@ -1,0 +1,97 @@
+{
+  "intents": [
+    {
+      "tag": "greeting",
+      "patterns": [
+        "Hi",
+        "Hey",
+        "How are you",
+        "Is anyone there?",
+        "Hello",
+        "Good day",
+        "Hi",
+        "Hi there",
+        "Hola",
+        "Hello",
+        "Hello there",
+        "Hya",
+        "Hya there"
+      ],
+      "responses": [
+        "Hello, thanks for visiting",
+        "Hi there, what can I do for you?",
+        "Hi there, how can I help?",
+        "Hi!, How can i assit you?",
+        "Hello!, How can i assit you?",
+        "Hola!, How can i assit you?"
+      ]
+    },
+    {
+      "tag": "goodbye",
+      "patterns": ["Bye", "See you later", "Goodbye"],
+      "responses": [
+        "See you later, thanks for visiting",
+        "Have a nice day",
+        "Bye! Come back again soon."
+      ]
+    },
+    {
+      "tag": "thanks",
+      "patterns": ["Thanks", "Thank you", "That's helpful", "Thank's a lot!"],
+      "responses": ["Happy to help!", "Any time!", "My pleasure"]
+    },
+    {
+      "tag": "funny",
+      "patterns": [
+        "Tell me a joke!",
+        "Tell me something funny!",
+        "Do you know a joke?"
+      ],
+      "responses": [
+        "Why did the hipster burn his mouth? He drank the coffee before it was cool.",
+        "What did the buffalo say when his son left for college? Bison."
+      ]
+    },
+    {
+      "tag": "NameQuery",
+      "patterns": [
+        "What is your name?",
+        "What could I call you?",
+        "What can I call you?",
+        "What do your friends call you?",
+        "Do you have a name?",
+        "Tell me your name?",
+	"How can I call you?"
+        ],
+      "responses": [
+        "You can call me Sam",
+        "You may call me Sam",
+        "Call me Sam"
+      ]
+    },
+    {
+      "tag": "age",
+      "patterns": [
+        "how old are you","when were you made","what is your age"
+        ],
+      "responses": [
+        "I was made in 2024, if that's what you are asking!"
+        ]
+    },
+    {
+      "tag": "pi",
+      "patterns": ["do you know pi?", "what is pi?", "how much is pi?", "what is the value of pi?", "value of pi?"],
+      "responses": ["PI is 3.1415926535897932384626433..."]
+    },
+    {
+      "tag": "time",
+      "patterns": ["what time it is?", "what is the time?", "give me the time"],
+      "responses": ["the time is"]
+    },
+    {
+      "tag": "date",
+      "patterns": ["what date it is?", "what is the date?", "give me the date"],
+      "responses": ["the date is"]
+    }
+  ]
+}
