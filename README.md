@@ -1,5 +1,10 @@
 # Implementation of a Contextual Chatbot in PyTorch.  
-Simple chatbot implementation with PyTorch. 
+## This Version 
+This version is a modified version using data from my self, using data from another projects and ussing RNN insted of NeuralNet
+
+## Description
+
+Simple chatbot implementation with PyTorch.
 
 - The implementation should be easy to follow for beginners and provide a basic understanding of chatbots.
 - The implementation is straightforward with a Feed Forward Neural net with 2 hidden layers.
