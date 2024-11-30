@@ -183,3 +183,9 @@ FILE = "data.pth"
 torch.save(data, FILE)
 
 print(f'training complete. file saved to {FILE}')
+
+model.eval()
+scripted_model = torch.jit.script(model)
+SMFILE = "chatbot/chatbot.pt"
+torch.jit.save(scripted_model, SMFILE)
+print(f'scripted_model export complete. file saved to {SMFILE}')
