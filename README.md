@@ -7,7 +7,7 @@ This version is a modified version
 - Using rules for call functions like to get the date and time
 
 
-# Installation
+## Installation
 
 ### Create an environment
 Whatever you prefer (e.g. `conda` or `venv`)
@@ -78,6 +78,8 @@ Run
 $ node ./chatbot-js/index.js
 ```
 
+
+# Old pytorch-chat info
 ## Description
 
 Simple chatbot implementation with PyTorch.
