@@ -39,8 +39,9 @@ def home(request):
     #sentence = input("You: ")
     #if sentence == "quit":
     #    break
-
-    sentence = tokenize(request)
+    print(request)
+    message = request.split(":")
+    sentence = tokenize(message[1])
     X = bag_of_words(sentence, all_words)
     #print(X.shape)
     X = X.reshape(1,1, X.shape[0])
@@ -62,7 +63,8 @@ def home(request):
                 output = f"{random.choice(intent['responses'])} {complement}"
     else:
         output = f"I do not understand..."
-    return output
+    message[1] = output
+    return message
 
 
 class EchoWorker(Bridge):

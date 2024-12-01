@@ -55,7 +55,7 @@ X_train = np.array(X_train)
 y_train = np.array(y_train)
 
 # Hyper-parameters 
-num_epochs = 1000
+num_epochs = 6000
 batch_size = 100
 #8
 learning_rate = 0.001
@@ -92,7 +92,7 @@ test_loader = DataLoader(dataset=dataset,
                           num_workers=0)
 print(f'Dataset size: {len(dataset)}')
 print(f'sugested epochs size: {int(n_iters / (len(dataset) / batch_size))}')
-num_epochs = int(n_iters / (len(dataset) / batch_size))
+#num_epochs = int(n_iters / (len(dataset) / batch_size))
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 #model = NeuralNet(input_size, hidden_size, output_size).to(device)
