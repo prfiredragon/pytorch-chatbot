@@ -1,4 +1,11 @@
 nltk
 torch
 numpy
-
+django
+whitenoise
+gunicorn
+torch
+torchaudio
+torchvision
+pytz
+pynode

@@ -6,6 +6,78 @@ This version is a modified version
 - ussing RNN insted of NeuralNet
 - Using rules for call functions like to get the date and time
 
+
+# Installation
+
+### Create an environment
+Whatever you prefer (e.g. `conda` or `venv`)
+```console
+$ mkdir myproject
+$ cd myproject
+$ python3 -m venv venv
+```
+
+### Activate it
+Mac / Linux:
+```console
+$ . venv/bin/activate
+```
+Windows:
+```console
+$ venv\Scripts\activate
+```
+### Install PyTorch and dependencies
+Run
+ ```console
+$ pip install -r requirements
+ ```
+
+
+For Information of PyTorch see [official website](https://pytorch.org/).
+
+
+If you get an error during the first run, you also need to install `nltk.tokenize.punkt`:
+Run this once in your terminal:
+ ```console
+$ python
+>>> import nltk
+>>> nltk.download('punkt')
+```
+
+### Install node dependencies
+Run
+ ```console
+$ cd chatbot-js
+$ npm install
+$ cd ..
+```
+
+## Usage on console
+Run
+```console
+$ python train.py
+```
+This will dump `data.pth` file. And then run
+```console
+$ python chat.py
+```
+
+## Usage on web with django
+Run
+```console
+$ cp intents.json ./chatbot/
+$ cp data.pth ./chatbot/
+$ python manage.py runserver
+```
+on the webBrowser go to "http://localhost:8000/"
+
+
+## Usage on web with node
+Run
+```console
+$ node ./chatbot-js/index.js
+```
+
 ## Description
 
 Simple chatbot implementation with PyTorch.
