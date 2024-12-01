@@ -91,9 +91,9 @@ $ node ./chatbot-js/index.js
 
 
 # Credits
-## Intends,json
-[![Alt text](Original Intends.json)](https://github.com/patrickloeber/pytorch-chatbot/blob/master/intents.json)
-[![Alt text](First Aid Recommendation Deep Learning ChatBot)](https://www.kaggle.com/code/therealsampat/first-aid-recommendation-deep-learning-chatbot/input)
+## Intends.json
+- Original Intends.json:[https://github.com/patrickloeber/pytorch-chatbot/blob/master/intents.json](https://github.com/patrickloeber/pytorch-chatbot/blob/master/intents.json)
+- First Aid Recommendation Deep Learning ChatBot:[https://www.kaggle.com/code/therealsampat/first-aid-recommendation-deep-learning-chatbot/input](https://www.kaggle.com/code/therealsampat/first-aid-recommendation-deep-learning-chatbot/input)
 
 
 # Old pytorch-chat info
