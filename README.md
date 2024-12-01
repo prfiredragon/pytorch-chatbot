@@ -5,6 +5,8 @@ This version is a modified version
 - using data from another projects
 - ussing RNN insted of NeuralNet
 - Using rules for call functions like to get the date and time
+- Using django for webchat ui
+- nodejs webchat ui version onder dev
 
 
 ## Installation
