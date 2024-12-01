@@ -1,4 +1,5 @@
 from datetime import datetime
+import pytz
 
 
 def rules_of_tags(tag):
@@ -13,9 +14,9 @@ def rules_of_tags(tag):
     complement = ""
     match tag:
        case "date":
-          complement = "{:%a %d %b %Y, %I:%M%p}".format(datetime.now())
+          complement = "{:%a %d %b %Y}".format(datetime.now(pytz.timezone('America/Puerto_Rico')))
        case "time":
-          complement = "{:%a %d %b %Y, %I:%M%p}".format(datetime.now())
+          complement = "{:%I:%M%p}".format(datetime.now(pytz.timezone('America/Puerto_Rico')))
        case "PHP":
           print("You can become a backend developer")
        case "Solidity":
