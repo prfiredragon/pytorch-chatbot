@@ -94,6 +94,8 @@ $ node ./chatbot-js/index.js
 ## Intends.json
 - Original Intends.json : [https://github.com/patrickloeber/pytorch-chatbot/blob/master/intents.json](https://github.com/patrickloeber/pytorch-chatbot/blob/master/intents.json)
 - First Aid Recommendation Deep Learning ChatBot : [https://www.kaggle.com/code/therealsampat/first-aid-recommendation-deep-learning-chatbot/input](https://www.kaggle.com/code/therealsampat/first-aid-recommendation-deep-learning-chatbot/input)
+- PYTorch with Dango : [https://github.com/Academy-Omen/torched-django](https://github.com/Academy-Omen/torched-django)
+- WebUI used on nodejs implementation : [https://pusher.com/tutorials/live-chat-with-node-js-mysql-and-pusher-channels-part-2/#build-live-chat-with-pusher-channels](https://pusher.com/tutorials/live-chat-with-node-js-mysql-and-pusher-channels-part-2/#build-live-chat-with-pusher-channels)
 
 
 # Old pytorch-chat info
