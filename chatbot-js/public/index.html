@@ -1,0 +1,528 @@
+
+    <!-- pusher-event-chat/public/landing/index.html -->
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Chatbot demo</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+        <style>
+            *,
+            html {
+                margin: 0;
+                padding: 0;
+                border: 0;
+            }
+    
+            html {
+                width: 100%;
+                height: 100%;
+            }
+    
+            .center {
+                width: 100%;
+                height: 50%;
+                margin: 0;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                color: white;
+                font-family: "Trebuchet MS", Helvetica, sans-serif;
+                text-align: center;
+            }
+    
+            h1 {
+                font-size: 144px;
+            }
+    
+            p {
+                font-size: 64px;
+            }    /* pusher-event-chat/public/landing/landing.css */
+            a,
+            a:focus,
+            a:hover {
+            color: #fff;
+            }
+
+            .btn-secondary,
+            .btn-secondary:hover,
+            .btn-secondary:focus {
+            color: #333;
+            text-shadow: none;
+            background-color: #fff;
+            border: .05rem solid #fff;
+            }
+
+            html,
+            body {
+            height: 100%;
+            background-color: #435165;
+            }
+
+            body {
+            color: #fff;
+            text-align: center;
+            text-shadow: 0 .05rem .1rem rgba(0,0,0,.5);
+            }
+
+            .site-wrapper {
+            display: table;
+            width: 100%;
+            height: 100%; /* For at least Firefox */
+            min-height: 100%;
+            box-shadow: inset 0 0 5rem rgba(0,0,0,.5);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            }
+
+            .site-wrapper-inner {
+            display: table-cell;
+            vertical-align: top;
+            }
+
+            .cover-container {
+            margin-right: auto;
+            margin-left: auto;
+            }
+
+            .inner {
+            padding: 2rem;
+            }
+
+            .masthead {
+            margin-bottom: 2rem;
+            }
+
+            .masthead-brand {
+            margin-bottom: 0;
+            }
+
+            .nav-masthead .nav-link {
+            padding: .25rem 0;
+            font-weight: 700;
+            color: rgba(255,255,255,.5);
+            background-color: transparent;
+            border-bottom: .25rem solid transparent;
+            }
+
+            .nav-masthead .nav-link:hover,
+            .nav-masthead .nav-link:focus {
+            border-bottom-color: rgba(255,255,255,.25);
+            }
+
+            .nav-masthead .nav-link + .nav-link {
+            margin-left: 1rem;
+            }
+
+            .nav-masthead .active {
+            color: #fff;
+            border-bottom-color: #fff;
+            }
+
+            @media (min-width: 48em) {
+
+            .masthead-brand {
+                float: left;
+            }
+
+            .nav-masthead {
+                float: right;
+            }
+
+            }
+
+            /*
+            * Cover
+            */
+
+            .cover {
+            padding: 0 1.5rem;
+            }
+
+            .cover .btn-lg {
+            padding: .75rem 1.25rem;
+            font-weight: 700;
+            }
+
+            .mastfoot {
+            color: rgba(255,255,255,.5);
+            }
+
+            @media (min-width: 40em) {
+
+            .masthead {
+                position: fixed;
+                top: 0;
+            }
+
+            .mastfoot {
+                position: fixed;
+                bottom: 0;
+            }
+
+            .site-wrapper-inner {
+                vertical-align: middle;
+            }
+
+            /* Handle the widths */
+            .masthead,
+            .mastfoot,
+            .cover-container {
+                width: 100%;
+            }
+
+            }
+
+            @media (min-width: 62em) {
+
+            .masthead,
+            .mastfoot,
+            .cover-container {
+                width: 42rem;
+            }
+
+            }
+
+            .chatbubble {
+                position: fixed;
+                bottom: 0;
+                right: 30px;
+                transform: translateY(300px);
+                transition: transform .3s ease-in-out;
+            }
+
+            .chatbubble.opened {
+                transform: translateY(0)
+            }
+
+            .chatbubble .unexpanded {
+                display: block;
+                background-color: #e23e3e;
+                padding: 10px 15px 10px;
+                position: relative;
+                cursor: pointer;
+                width: 350px;
+                border-radius: 10px 10px 0 0;
+            }
+
+            .chatbubble .expanded {
+                height: 300px;
+                width: 350px;
+                background-color: #fff;
+                text-align: left;
+                padding: 10px;
+                color: #333;
+                text-shadow: none;
+                font-size: 14px;
+            }
+
+            .chatbubble .chat-window {
+            overflow: auto;
+            }
+
+            .chatbubble .loader-wrapper {
+                margin-top: 50px;
+                text-align: center;
+            }
+
+            .chatbubble .messages {
+                display: none;
+                list-style: none;
+                margin: 0 0 50px;
+                padding: 0;
+            }
+
+            .chatbubble .messages li {
+                width: 85%;
+                float: left;
+                padding: 10px;
+                border-radius: 5px 5px 5px 0;
+                font-size: 14px;
+                background: #c9f1e6;
+                margin-bottom: 10px;
+            }
+
+            .chatbubble .messages li .sender {
+                font-weight: 600;
+            }
+
+            .chatbubble .messages li.reply {
+                float: right;
+                text-align: right;
+                color: #fff;
+                background-color: #e33d3d;
+                border-radius: 5px 5px 0 5px;
+            }
+
+            .chatbubble .chats .input {
+                position: absolute;
+                bottom: 0;
+                padding: 10px;
+                left: 0;
+                width: 100%;
+                background: #f0f0f0;
+                display: none;
+            }
+
+            .chatbubble .chats .input .form-group {
+                width: 80%;
+            }
+
+            .chatbubble .chats .input input {
+                width: 100%;
+            }
+
+            .chatbubble .chats .input button {
+                width: 20%;
+            }
+
+            .chatbubble .chats {
+            display: none;
+            }
+
+            .chatbubble .join-screen {
+            margin-top: 20px;
+            display: none;
+            }
+
+            .chatbubble .chats.active,
+            .chatbubble .join-screen.active {
+            display: block;
+            }
+
+            /* Loader Credit: https://codepen.io/ashmind/pen/zqaqpB */
+            .chatbubble .loader {
+            color: #e23e3e;
+            font-family: Consolas, Menlo, Monaco, monospace;
+            font-weight: bold;
+            font-size: 10vh;
+            opacity: 0.8;
+            }
+
+            .chatbubble .loader span {
+            display: inline-block;
+            -webkit-animation: pulse 0.4s alternate infinite ease-in-out;
+                    animation: pulse 0.4s alternate infinite ease-in-out;
+            }
+
+            .chatbubble .loader span:nth-child(odd) {
+            -webkit-animation-delay: 0.4s;
+                    animation-delay: 0.4s;
+            }
+
+            @-webkit-keyframes pulse {
+            to {
+                -webkit-transform: scale(0.8);
+                        transform: scale(0.8);
+                opacity: 0.5;
+            }
+
+            }
+
+            @keyframes pulse {
+
+            to {
+                -webkit-transform: scale(0.8);
+                        transform: scale(0.8);
+                opacity: 0.5;
+            }
+
+            }
+
+        </style>
+        <script src="/socket.io/socket.io.js"></script>
+    </head>
+    <body>
+        <div class="site-wrapper">
+        <div class="site-wrapper-inner">
+            <div class="cover-container">
+            <header class="masthead clearfix">
+                <div class="inner">
+                <h3 class="masthead-brand">Chatbot demo</h3>
+                <nav class="nav nav-masthead">
+                    <!--a class="nav-link active" href="#">Home</a>
+                    <a class="nav-link" href="#">Schedule</a>
+                    <a class="nav-link" href="#">Contact</a-->
+                </nav>
+                </div>
+            </header>
+            <main role="main" class="inner cover">
+                <!--h1 class="cover-heading">Real-time tech event</h1>
+                <p class="lead">;Powering realtime experiences for mobile and web!</p>
+                <p class="lead">
+                <a href="#" class="btn btn-lg btn-secondary">SCHEDULE</a>
+                </p-->
+            </main>
+            <footer class="mastfoot">
+            </footer>
+            </div>
+        </div>
+        </div>
+        <div class="chatbubble">
+        <div class="unexpanded">
+            <div class="title">Chat with Bot</div>
+        </div>
+        <div class="expanded chat-window">
+            <div class="join-screen container">
+            <form id="joinScreenForm">
+                <button type="button" class="btn btn-block btn-primary">Join Chat</button>
+            </form>
+            </div>
+            <div class="chats">
+            <div class="loader-wrapper">
+                <div class="loader">
+                <span>{</span><span>}</span>
+                </div>
+            </div>
+            <ul class="messages clearfix">
+            </ul>
+            <div class="input">
+                <form class="form-inline" id="messageOthers">
+                <div class="form-group">
+                    <input type="text" autocomplete="off" class="form-control" id="newMessage" placeholder="Enter Message">
+                </div>
+                <button type="submit" class="btn btn-primary">Send</button>
+                </form>
+            </div>
+            </div>
+        </div>
+    </div>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <!--script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script-->
+        <script type="text/javascript">
+  	        var socket = io();
+            // pusher-event-chat/public/landing/app.js
+                (function() {
+
+            let chat = {
+                //owner: undefined,
+                owner: "Me",
+            }
+
+            const messageEventName = 'client-new-message'
+            const chatChannelName = 'presence-groupChat'
+            const warningEvent = 'client-warn-user'
+            const terminateEvent = 'client-terminate-user'
+
+            const chatPage = $(document)
+            const chatWindow = $('.chatbubble')
+            const chatHeader = chatWindow.find('.unexpanded')
+            const chatBody = chatWindow.find('.chat-window')
+
+            let helpers = {
+                ToggleChatWindow: function() {
+                    chatWindow.toggleClass('opened')
+                    chatHeader.find('.title').text(
+                        chatWindow.hasClass('opened') ? 'Minimize Chat Window' : 'Chat with Bot'
+                    )
+                },
+
+                ShowAppropriateChatDisplay: function() {
+                    (chat.owner) ? helpers.ShowChatRoomDisplay(): helpers.ShowChatInitiationDisplay()
+                },
+
+                ShowChatInitiationDisplay: function() {
+                    chatBody.find('.chats').removeClass('active')
+                    chatBody.find('.join-screen').addClass('active')
+                },
+
+                ShowChatRoomDisplay: function() {
+                    chatBody.find('.chats').addClass('active')
+                    chatBody.find('.join-screen').removeClass('active')
+                    setTimeout(function() {
+                        chatBody.find('.loader-wrapper').hide()
+                        chatBody.find('.input, .messages').show()
+                    }, 2000)
+                },
+
+                NewChatMessage: function(message) {
+                    if (message !== undefined) {
+                        const messageClass = message.sender !== chat.owner ? 'reply' : 'user'
+                        chatBody.find('ul.messages').append(
+                            `<li class="clearfix message ${messageClass}">
+                                <div class="sender">${message.sender}</div>
+                                <div class="message">${message.text}</div>
+                            </li>`
+                        )
+
+                        chatBody.scrollTop(chatBody[0].scrollHeight)
+                    }
+                },
+
+                SendMessageToOthers: function(evt) {
+                    evt.preventDefault()
+                    let createdAt = new Date()
+                    createdAt = createdAt.toLocaleString()
+                    const message = $('#newMessage').val().trim()
+                    /*
+                    var channel = pusher.channel(chatChannelName);
+                    channel.trigger(messageEventName, {
+                        'sender': chat.owner,
+                        'text': message,
+                        'createdAt': createdAt
+                    });
+                    */
+                    var messtosend = {
+                        'sender': chat.owner,
+                        'text': message,
+                        'createdAt': createdAt
+                    };
+                    socket.emit('chat', JSON.stringify(messtosend));
+                    helpers.NewChatMessage({
+                        'text': message,
+                        'name': chat.owner,
+                        'sender': chat.owner
+                    })
+
+                    console.log("Message added!")
+                    $('#newMessage').val('')
+                },
+
+                JoinChatSession: function() {
+                    chatBody.find('#joinScreenForm button').attr('disabled', true)
+                    /*pusher.signin();
+
+                    const channel = pusher.subscribe(chatChannelName);
+                    channel.bind('pusher:subscription_succeeded', () => {
+                        let me = channel.members.me
+                        chat.owner = me.info.fullname
+                        helpers.ShowAppropriateChatDisplay()
+                    });*/
+
+                    helpers.Listen()
+                },
+
+                Listen() {
+                    /*const channel = pusher.channel(chatChannelName);
+                    channel.bind(messageEventName, (data) => {
+                        helpers.NewChatMessage(data)
+                    })*/
+                    /*
+                    pusher.user.bind(warningEvent, function(data) {
+                        alert(JSON.stringify(data.message));
+                    });
+
+                    pusher.user.bind(terminateEvent, function(data) {
+                        alert(JSON.stringify(data.message));
+                        chat.owner = '';
+                        helpers.ShowAppropriateChatDisplay()
+                    });*/
+                }
+            }
+
+            chatPage.ready(helpers.ShowAppropriateChatDisplay)
+            chatHeader.on('click', helpers.ToggleChatWindow)
+            chatBody.find('#joinScreenForm').on('click', helpers.JoinChatSession)
+            chatBody.find('#messageOthers').on('submit', helpers.SendMessageToOthers)
+            socket.on('chat', (data) => {helpers.NewChatMessage(JSON.parse(data));});
+            }());
+
+
+        </script>
+    </body>
+    </html>

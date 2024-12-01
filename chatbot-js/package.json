@@ -1,0 +1,16 @@
+{
+  "name": "chatbot",
+  "version": "0.1.0",
+  "description": "Nodejs chatbot",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js"
+  },
+  "author": "Roberto Rodriguez",
+  "license": "ISC",
+  "dependencies": {
+    "nodepy": "^0.1.0",
+    "pynode": "^0.2.0",
+    "socket.io": "^4.8.1"
+  }
+}
