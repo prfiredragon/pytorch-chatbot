@@ -72,11 +72,11 @@ $ python manage.py runserver
 on the webBrowser go to "http://localhost:8000/"
 
 
-## Usage on web with node
-Run
-```console
-$ node ./chatbot-js/index.js
-```
+[//]: # (## Usage on web with node)
+[//]: # (Run)
+[//]: # (```console)
+[//]: # ($ node ./chatbot-js/index.js)
+[//]: # (```)
 
 
 # Old pytorch-chat info
