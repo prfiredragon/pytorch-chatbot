@@ -1,15 +1,16 @@
 # Implementation of a Contextual Chatbot in PyTorch.  
 ## This Version 
-This version is a modified version 
+This version is a modified version. This package is for reference. I found on the Internet many questioning if pytorch can be used on the web.
 - using data from my self
 - using data from another projects
 - ussing RNN insted of NeuralNet
 - Using rules for call functions like to get the date and time
 - Using django for webchat ui
+- flask rest-api with test webUI
+
 ### Under Dev
 - nodejs webchat ui version under dev
-### Planing to add
-- flask rest-api planning to add
+
 
 
 ## Installation
