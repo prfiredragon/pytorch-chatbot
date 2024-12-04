@@ -5,8 +5,8 @@ This version is a modified version. This package is for reference. I found on th
 - using data from another projects
 - ussing RNN insted of NeuralNet
 - Using rules for call functions like to get the date and time
-- Using django for webchat ui
-- flask rest-api with test webUI
+- Using django for webchat UI
+- Flask rest-api with test webchat UI
 
 ### Under Dev
 - nodejs webchat ui version under dev
