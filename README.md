@@ -118,6 +118,8 @@ $ python app.py
 ## Code
 - PYTorch with Dango : [https://github.com/Academy-Omen/torched-django](https://github.com/Academy-Omen/torched-django)
 - WebUI used on nodejs implementation : [https://pusher.com/tutorials/live-chat-with-node-js-mysql-and-pusher-channels-part-2/#build-live-chat-with-pusher-channels](https://pusher.com/tutorials/live-chat-with-node-js-mysql-and-pusher-channels-part-2/#build-live-chat-with-pusher-channels)
+- Flask rest-api : [https://pytorch.org/tutorials/intermediate/flask_rest_api_tutorial.html](https://pytorch.org/tutorials/intermediate/flask_rest_api_tutorial.html)
+- Webui used on the flask rest-api demo [https://github.com/patrickloeber/chatbot-deployment/tree/main/standalone-frontend](https://github.com/patrickloeber/chatbot-deployment/tree/main/standalone-frontend)
 
 
 # Old pytorch-chat info
