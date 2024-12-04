@@ -1,0 +1,11 @@
+{
+  "name": "chatbot-flask",
+  "version": "0.1.0",
+  "description": "Web Interface for python flash rest-api chatbot",
+  "main": "index.mjs",
+  "scripts": {
+    "test": "node index.mjs"
+  },
+  "author": "Roberto Rodriguez",
+  "license": "ISC"
+}

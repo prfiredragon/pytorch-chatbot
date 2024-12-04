@@ -1,0 +1,10 @@
+nltk
+torch
+numpy
+torch
+torchaudio
+torchvision
+pytz
+flask
+waitress
+matplotlib

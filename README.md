@@ -34,7 +34,7 @@ $ venv\Scripts\activate
 ### Install PyTorch and dependencies
 Run
  ```console
-$ pip install -r requirements
+$ pip install -r requirements.txt
  ```
 
 
@@ -87,6 +87,25 @@ $ node ./chatbot-js/index.js
 [//]: # (```console)
 [//]: # ($ node ./chatbot-js/index.js)
 [//]: # (```)
+
+
+## Usage on web with flask
+
+go to the directory
+```
+$ cd chatbot-flask
+```
+
+install requirenmnts
+```
+$ pip install -r requirements.txt
+```
+
+run
+```
+$ python app.py
+```
+
 
 
 
